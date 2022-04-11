@@ -10,14 +10,13 @@
     background: #000;
     border-radius: 2px;
     width: 358px;
-    margin: auto;
     padding: 0;
     border: 0;
     margin: 48px 36px 37px;
     cursor: pointer;
 }
 .popup__saved:hover{
-    opacity: 0.8
+    opacity: 0.8;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
