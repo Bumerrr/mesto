@@ -1,4 +1,4 @@
-.profile__info_name{
+.profile__info-name{
     box-sizing: border-box;
     width: 294px;
     max-height: 39px;
@@ -11,11 +11,11 @@
     line-height: 48px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
+    
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-    .profile__info_name {
+    .profile__info-name {
         max-width: 189px;
         font-size: 27px;
         line-height: 33px;

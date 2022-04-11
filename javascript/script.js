@@ -1,12 +1,12 @@
-const openPopupButton = document.querySelector('.profile__info_button');
+const openPopupButton = document.querySelector('.profile__info-button');
 const popupCloseButton = document.querySelector('.popup__close');
 const popupCloseButtonOnSaved = document.querySelector('.popup__saved');
 const form = document.querySelector('.popup__content');
 let formElement = document.querySelector('.popup');
 let nameInput = document.querySelector('.popup__name');
 let jobInput = document.querySelector('.popup__text');
-let nameProfile = document.querySelector('.profile__info_name');
-let textProfile = document.querySelector('.profile__info_text');
+let nameProfile = document.querySelector('.profile__info-name');
+let textProfile = document.querySelector('.profile__info-text');
 
 function popupOpenToogle(){
     formElement.classList.toggle('popup__opened');

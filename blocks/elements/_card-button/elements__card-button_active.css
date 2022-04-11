@@ -1,4 +1,4 @@
-.elements__card_button_active{
+.elements__card-button_active{
     box-sizing: border-box;
     width: 22px;
     height: 19px;
@@ -14,6 +14,6 @@
     display: none;
 }
 
-.elements__card_button_active:hover{
+.elements__card-button_active:hover{
     opacity: 0.5;
 }
