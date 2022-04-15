@@ -1,18 +1,19 @@
-.elements_card-button{
+.elements__card-button_active{
     box-sizing: border-box;
     width: 22px;
     height: 19px;
-    background-color: #fff;
+    background-image: url(../../../../image/blackheart.svg);
     border: 1px solid #FFF;
     border-radius: 2%;
     cursor: pointer;
     background-position: 50%;
     background-repeat: no-repeat;
-    transition: opacity 0.3s;
+    transition: 0.3s;
     padding: 0;
     margin: 0;
+    display: none;
 }
 
-.elements_card-button:hover{
+.elements__card-button_active:hover{
     opacity: 0.5;
 }
