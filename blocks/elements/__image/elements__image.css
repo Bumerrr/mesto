@@ -1,6 +1,6 @@
-.elements__image{
-    max-height: 282px;
-    width: 100%;
+.elements__image {
+    height: 282px;
     border-radius: 10px 10px 0px 0px;
-    min-height: 282px;
+    Object-position: center;
+    Object-fit: cover;
 }

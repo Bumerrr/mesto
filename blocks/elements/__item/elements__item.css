@@ -1,4 +1,18 @@
 .elements__item{
     background: #fff;
     border-radius: 10px;
+    max-width: 282px;
+    margin: auto;
+    overflow: hidden;
+    
 }
+
+@media screen and (min-width: 619px) and (max-width: 880px) {
+    .elements__item {
+       margin-right: 0;
+      
+    }
+    .elements__item:nth-child(2n){
+        margin-left: 0;
+    }
+  }
