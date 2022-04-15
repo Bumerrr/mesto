@@ -1,6 +1,8 @@
 .elements__image {
     height: 282px;
     border-radius: 10px 10px 0px 0px;
-    Object-position: center;
-    Object-fit: cover;
+    object-position: center;
+    object-fit: cover;
 }
+/*как решить проблему с изображением ?*/
+/*пробовал много разных способов и методов, подскажите пожалуйста*/
