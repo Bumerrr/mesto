@@ -20,9 +20,10 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .profile__info-button{
-        background-size: auto;
+        background-size: 7.5px 7.5px ;
         width: 18px;
         height: 18px;
         align-self: center;
+
     }
   }
