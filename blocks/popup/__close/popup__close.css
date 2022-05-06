@@ -7,10 +7,9 @@
     background-size: contain;
     background-color: transparent;
     border: none;
-    position: relative;
-    top: -190px;
-    left: 470px;
-    
+    position: absolute;
+    top: -40px;
+    right: -40px;
     transition: 0.3s;
     cursor: pointer;
     padding: 0;
@@ -25,8 +24,8 @@
     .popup__close {
         width: 20px;
         height: 20px;
-        top: -188px;
-        left: 280px;
         bottom: 0;
+        top: -30px;
+        right: 0px;
     }
   }
