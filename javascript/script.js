@@ -30,7 +30,7 @@ const сardsContainer = [
 /*переменные для попап editing */
 const popupEditingOpenButton = document.querySelector(".profile__info-button");
 const popupEdit = document.querySelector(".popup_editing");
-const popupEditingCloseButtonOnSaved = popupEdit.querySelector(".popup__saved");
+
 const formPopupEditing = popupEdit.querySelector(".popup__content");
 const popupEditContainer = popupEdit.querySelector('.popup__container');
 const nameInputPopupEditing = popupEdit.querySelector(".popup__info_type_name");
@@ -88,7 +88,7 @@ const openFormEdit = () => {
 /*функция открытия формы попап Editing с сохранением значений*/ 
 const createNewCardAddFormSubmit = evt => {
   evt.preventDefault();
-  visibilityCard(
+  showCard(
     {name: inputPlaceTitlePopupAdd.value, link: inputPlaceLinkPopupAdd.value}
   );
   closePopup(popupAdd);
@@ -115,7 +115,7 @@ const generateItem = main => {
 }
 
 /*активация карточек*/
-const showCard = sixCard => cardsBlock.prepend(generateItem(sixCard));
+const showCard = cardContent => cardsBlock.prepend(generateItem(cardContent));
 
 /*удаление карточки*/
 const deleteCard = evt => evt.target.closest('.elements__item').remove();
@@ -128,7 +128,7 @@ const openImage = cardInfo => {
     openPopup(popupWindowBigImage);
 }
 /*создания массива карточек*/
-сardsContainer.forEach(sixCard => showCard(sixCard));
+сardsContainer.forEach(cardContent => showCard(cardContent));
 
 /*функция закрытия попап*/
 buttonsClose.forEach((type) => {
