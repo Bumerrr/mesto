@@ -31,18 +31,19 @@ const сardsContainer = [
 const popupEditingOpenButton = document.querySelector(".profile__info-button");
 const popupEdit = document.querySelector(".popup_editing");
 
-const formPopupEditing = popupEdit.querySelector(".popup__content");
+const formPopupEditing = popupEdit.querySelector(".form");
 const popupEditContainer = popupEdit.querySelector('.popup__container');
 const nameInputPopupEditing = popupEdit.querySelector(".popup__info_type_name");
 const jobInputPopupEditing = popupEdit.querySelector(".popup__info_type_text");
 const nameProfile = document.querySelector(".profile__info-name");
 const textProfile = document.querySelector(".profile__info-text");
+const popupEditCloseButtonOnSaved = popupEdit.querySelector(".form__save");
 
 /*переменные для попап add */
 const popupAdd = document.querySelector(".popup_add");
 const popupAddOpenButton = document.querySelector(".profile__button-add");
-const popupAddCloseButtonOnSaved = popupAdd.querySelector(".popup__saved");
-const formPopupAdd = popupAdd.querySelector(".popup__content");
+const popupAddCloseButtonOnSaved = popupAdd.querySelector(".form__save");
+const formPopupAdd = popupAdd.querySelector(".form");
 const popupAddContainer = popupAdd.querySelector('.popup__container');
 const inputPlaceTitlePopupAdd = popupAdd.querySelector('.popup__info_type_title');
 const inputPlaceLinkPopupAdd = popupAdd.querySelector('.popup__info_type_link');
@@ -60,9 +61,13 @@ const popupWindowContainer = popupWindowBigImage.querySelector('.popup__containe
 const popupWindowImg = popupWindowBigImage.querySelector('.popup__image-window');
 const popupWindowTitle = popupWindowBigImage.querySelector('.popup__title-window');
 
+
+
+
+
 /*функция открытия попап */ 
-const openPopup = visible => {
-  visible.classList.add('popup_opened');
+const openPopup = show => {
+  show.classList.add('popup_opened');
 }
 
 /*функция закрытия попап */ 
@@ -91,6 +96,8 @@ const createNewCardAddFormSubmit = evt => {
   showCard(
     {name: inputPlaceTitlePopupAdd.value, link: inputPlaceLinkPopupAdd.value}
   );
+  popupAddCloseButtonOnSaved.disabled = true;
+  popupAddCloseButtonOnSaved.classList.add('form__save_disabled');
   closePopup(popupAdd);
    inputPlaceTitlePopupAdd.value = inputPlaceLinkPopupAdd.value = '';
 }
@@ -138,18 +145,19 @@ buttonsClose.forEach((type) => {
 
 
 
+
 /*обработчик собитий для попап editing*/
 popupEditingOpenButton.addEventListener('click', openFormEdit);
 popupEdit.addEventListener('click', () => closePopup(popupEdit));
 formPopupEditing.addEventListener('submit', changeNameProfile);
-popupEditContainer.addEventListener('click', visible => visible.stopPropagation());
+popupEditContainer.addEventListener('click', show => show.stopPropagation());
 
 /*обработчик собитий для попап add*/
 popupAddOpenButton.addEventListener('click', () => openPopup(popupAdd));
 popupAdd.addEventListener('click', () => closePopup(popupAdd));
 formPopupAdd.addEventListener('submit', createNewCardAddFormSubmit);
-popupAddContainer.addEventListener('click', visible => visible.stopPropagation());
+popupAddContainer.addEventListener('click', show => show.stopPropagation());
 
 /*обработчик собитий для попап Window*/
 popupWindowBigImage.addEventListener('click', () => closePopup(popupWindowBigImage));
-popupWindowContainer.addEventListener('click', visible => visible.stopPropagation());
+popupWindowContainer.addEventListener('click', show => show.stopPropagation());

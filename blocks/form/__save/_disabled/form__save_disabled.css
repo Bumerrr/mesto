@@ -1,0 +1,8 @@
+.form__save_disabled{
+    color: #000;
+    background: white;
+    border: 1px solid #000;
+    cursor: default;
+    opacity: 0.2;
+}
+

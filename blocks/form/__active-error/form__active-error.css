@@ -1,0 +1,8 @@
+.form__active-error{
+   display: block;
+   height: 30px;
+   width: 358px;
+   padding-top: 3px;
+   padding-left: 36px;
+   box-sizing: border-box;
+}

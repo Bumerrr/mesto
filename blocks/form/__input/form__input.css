@@ -1,5 +1,12 @@
-.popup__info{
+.form__input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    width: 358px;
+    margin-left: 36px;
+    cursor: pointer;
     padding: 0;
+    min-height: 27px;
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -10,4 +17,3 @@
     white-space: nowrap;
     overflow: hidden;
 }
-
