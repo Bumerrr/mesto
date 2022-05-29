@@ -66,13 +66,13 @@ const popupWindowTitle = popupWindowBigImage.querySelector('.popup__title-window
 
 
 /*функция открытия попап */ 
-const openPopup = show => {
-  show.classList.add('popup_opened');
+const openPopup = popup => {
+  popup.classList.add('popup_opened');
 }
 
 /*функция закрытия попап */ 
-const closePopup = hidden => {
-  hidden.classList.remove('popup_opened');
+const closePopup = popup => {
+  popup.classList.remove('popup_opened');
 }
 
 /*функция открытия формы попап Editing с преобразованием значений*/ 
@@ -99,7 +99,8 @@ const createNewCardAddFormSubmit = evt => {
   popupAddCloseButtonOnSaved.disabled = true;
   popupAddCloseButtonOnSaved.classList.add('form__save_disabled');
   closePopup(popupAdd);
-   inputPlaceTitlePopupAdd.value = inputPlaceLinkPopupAdd.value = '';
+   inputPlaceTitlePopupAdd.value = '';
+   inputPlaceLinkPopupAdd.value = '';
 }
 
 /*функция лайка*/
@@ -143,21 +144,38 @@ buttonsClose.forEach((type) => {
     type.addEventListener('click', () => closePopup(popup));
 });
 
+const popupList = document.querySelectorAll('.popup');
+popupList.forEach(popup => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+       closePopup(popup)
+    }
+  })
+}); 
+
+function closeEsc (evt) {
+  if(evt.key === "Escape") {
+    closePopup(popupEdit);
+    closePopup(popupAdd);
+    closePopup(popupWindowBigImage);
+  }
+}
+document.addEventListener("keydown", closeEsc);
 
 
 
 /*обработчик собитий для попап editing*/
 popupEditingOpenButton.addEventListener('click', openFormEdit);
-popupEdit.addEventListener('click', () => closePopup(popupEdit));
+// popupEdit.addEventListener('click', () => closePopup(popupEdit));
 formPopupEditing.addEventListener('submit', changeNameProfile);
-popupEditContainer.addEventListener('click', show => show.stopPropagation());
+popupEditContainer.addEventListener('click', popup => popup.stopPropagation());
 
 /*обработчик собитий для попап add*/
 popupAddOpenButton.addEventListener('click', () => openPopup(popupAdd));
-popupAdd.addEventListener('click', () => closePopup(popupAdd));
+// popupAdd.addEventListener('click', () => closePopup(popupAdd));
 formPopupAdd.addEventListener('submit', createNewCardAddFormSubmit);
-popupAddContainer.addEventListener('click', show => show.stopPropagation());
+popupAddContainer.addEventListener('click', popup => popup.stopPropagation());
 
 /*обработчик собитий для попап Window*/
-popupWindowBigImage.addEventListener('click', () => closePopup(popupWindowBigImage));
-popupWindowContainer.addEventListener('click', show => show.stopPropagation());
+// popupWindowBigImage.addEventListener('click', () => closePopup(popupWindowBigImage));
+popupWindowContainer.addEventListener('click', popup => popup.stopPropagation());
