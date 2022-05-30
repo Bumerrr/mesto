@@ -3,5 +3,6 @@
     .popup__info_type_link{
       width: 238px;
       margin: 0 22px;
+      margin-right: 0;
     }
   }
