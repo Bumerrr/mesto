@@ -68,11 +68,13 @@ const popupWindowTitle = popupWindowBigImage.querySelector('.popup__title-window
 /*функция открытия попап */ 
 const openPopup = popup => {
   popup.classList.add('popup_opened');
+  document.addEventListener("keydown", closeByEsc);
 }
 
 /*функция закрытия попап */ 
 const closePopup = popup => {
   popup.classList.remove('popup_opened');
+  document.addEventListener("keydown", closeByEsc);
 }
 
 /*функция открытия формы попап Editing с преобразованием значений*/ 
@@ -138,12 +140,7 @@ const openImage = cardInfo => {
 /*создания массива карточек*/
 сardsContainer.forEach(cardContent => showCard(cardContent));
 
-/*функция закрытия попап*/
-buttonsClose.forEach((type) => {
-    const popup = type.closest('.popup');
-    type.addEventListener('click', () => closePopup(popup));
-});
-
+/*закрытие popup по клику на overlay*/
 const popupList = document.querySelectorAll('.popup');
 popupList.forEach(popup => {
   popup.addEventListener('mousedown', (evt) => {
@@ -152,17 +149,13 @@ popupList.forEach(popup => {
     }
   })
 }); 
-
-function closeEsc (evt) {
-  if(evt.key === "Escape") {
-    closePopup(popupEdit);
-    closePopup(popupAdd);
-    closePopup(popupWindowBigImage);
+/*закрытие popup по нажатию на Escape*/
+function closeByEsc (evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup); 
   }
-}
-document.addEventListener("keydown", closeEsc);
-
-
+};
 
 /*обработчик собитий для попап editing*/
 popupEditingOpenButton.addEventListener('click', openFormEdit);
