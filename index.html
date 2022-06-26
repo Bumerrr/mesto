@@ -39,7 +39,7 @@
       <div class="popup__container">
          <button type="button" class="popup__close" aria-label="Close"></button>
          <h2 class="popup__title">Редактировать&nbsp;профиль</h2>
-         <form class="form" name="formChange" novalidate>
+         <form class="form popup__form-profile" name="formChange" novalidate>
             <label class="form__label">
                <input name='nameProfile' type="text" id='name' placeholder="Имя" class="popup__info popup__info_type_name form__input"
                   minlength="2" maxlength="40" required />
@@ -58,7 +58,7 @@
       <div class="popup__container">
          <button type="button" class="popup__close" aria-label="Close"></button>
          <h2 class="popup__title">Новое&nbsp;место</h2>
-         <form class="form" name="formAdd" novalidate>
+         <form class="form form_add-card" name="formAdd" novalidate>
             <label class="form__label">
                <input name="nameCard" type="text" id='place' placeholder="Название" class="popup__info popup__info_type_title form__input"
                   minlength="2" maxlength="30" required />
@@ -90,8 +90,10 @@
          </div>
       </li>
    </template>
-   <script src="./javascript/script.js"></script>
-   <script src="./javascript/validation.js"></script>
+   <script type="module" src="./javascript/index.js"></script>
+   <!-- <script src="./javascript/formValidation.js"></script>
+   <script src="./javascript/Card.js"></script>
+   <script src="./javascript/objects.js"></script> -->
 </body>
 
 </html>
