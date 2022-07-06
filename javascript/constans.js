@@ -1,27 +1,38 @@
+// теперь картинки можно импортировать,
+// вебпак добавит в переменные правильные пути
+const bmw = new URL('../image/bmw.jpg', import.meta.url);
+const audi = new URL('../image/audi.jpg', import.meta.url);
+const bmwRed = new URL('../image/bmwred.jpg', import.meta.url)
+// теперь картинки можно импортировать,
+// вебпак добавит в переменные правильные пути
+const mers = new URL('../image/mers.jpg', import.meta.url);
+const allCar = new URL('../image/allcar.jpg', import.meta.url);
+const mst = new URL('../image/mst.jpg', import.meta.url)
+
 export const initialCards = [
   {
     name: 'Blue',
-    link: './image/bmw.jpg'
+    link: bmw
   },
   {
     name: 'Yellow',
-    link: './image/audi.jpg'
+    link: audi
   },
   {
     name: 'Red',
-    link: './image/bmwred.jpg'
+    link: bmwRed
   },
   {
     name: 'Grey',
-    link: './image/mers.jpg'
+    link: mers
   },
   {
     name: 'Different',
-    link: './image/allcar.jpg'
+    link: allCar
   },
   {
     name: 'Black',
-    link: './image/mst.jpg'
+    link: mst
   }
 ];
 
