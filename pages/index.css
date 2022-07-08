@@ -43,12 +43,12 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__label/form__label.css);
-@import url(../blocks/form/__active-erroring/form__active-erroring.css);
+@import url(../blocks/form/__active-error/form__active-error.css);
 @import url(../blocks/form/__input/_active/form__input-error_active.css);
 @import url(../blocks/form/__save/form__save.css);
 @import url(../blocks/form/__save/_disabled/form__save_disabled.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/form/__input/_type/form__input_type_error.css);
-@import url(../blocks/form/__active-erroring/_visible/form__active-erroring_visible.css);
+@import url(../blocks/form/__active-error/_visible/form__active-error_visible.css);
 @import url(../blocks/body/body.css);

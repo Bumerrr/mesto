@@ -1,14 +1,18 @@
 class Card {
-  constructor(data, element, openHandler) {
+  constructor(data, cardSelector, openHandler) {
     const { name, link } = data;
     this._name = name;
     this._link = link;
-    this._element = element;
+    this._cardSelector = document.querySelector('#elements-add').content.querySelector('.elements__item');
+    // console.log(this._cardSelector)
     this._openHandler = openHandler;
+    // console.log(this._openHandler)
   }
 
   _getTemplate() {
-    return this._element.cloneNode(true);
+    const cardElement = this._cardSelector.cloneNode(true);
+    return cardElement; 
+    // return this._element.cloneNode(true);
   }
 
   _buttonAddingLike = () => {
