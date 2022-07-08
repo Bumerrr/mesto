@@ -19,12 +19,15 @@ const popupAddContainer = popupAdd.querySelector('.popup__container');
 const inputPlaceTitlePopupAdd = popupAdd.querySelector('.popup__info_type_title');
 const inputPlaceLinkPopupAdd = popupAdd.querySelector('.popup__info_type_link');
 const containerItems = document.querySelector(".elements__item");
-const templateCards = document.querySelector('#elements-add');
+// const templateCards = document.querySelector('#elements-add');
+
+const templateCards = '#elements-add';
+
 const formAdd = document.querySelector('.form_add-card');
 const formEdit = document.querySelector('.popup__form-profile');
 const buttonsClose = document.querySelectorAll('.popup__close');
 const cardsBlock = document.querySelector('.elements__list');
-const templateCard = document.querySelector('#elements-add').content.querySelector('.elements__item');
+// const templateCard = document.querySelector('#elements-add').content.querySelector('.elements__item');
 const popupWindowBigImage = document.querySelector('.popup_window');
 const popupWindowContainer = popupWindowBigImage.querySelector('.popup__container-window');
 const popupWindowImg = popupWindowBigImage.querySelector('.popup__image-window');
@@ -71,7 +74,7 @@ popupList.forEach(popup => {
 });
 
 function createCard(data) {
-  const card = new Card(data, templateCard, openImage);
+  const card = new Card(data,  templateCards, openImage);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -79,6 +82,7 @@ function createCard(data) {
 function renderCard(cardElement) {
   cardsBlock.prepend(cardElement);
 };
+
 
 initialCards.forEach((item) => {
   renderCard(createCard(item));

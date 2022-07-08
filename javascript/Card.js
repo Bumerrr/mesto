@@ -3,16 +3,13 @@ class Card {
     const { name, link } = data;
     this._name = name;
     this._link = link;
-    this._cardSelector = document.querySelector('#elements-add').content.querySelector('.elements__item');
-    // console.log(this._cardSelector)
+    this._cardSelector = cardSelector;
     this._openHandler = openHandler;
-    // console.log(this._openHandler)
   }
 
   _getTemplate() {
-    const cardElement = this._cardSelector.cloneNode(true);
-    return cardElement; 
-    // return this._element.cloneNode(true);
+    this._card = document.querySelector(this._cardSelector).content.querySelector('.elements__item').cloneNode(true);
+    return this._card; 
   }
 
   _buttonAddingLike = () => {
@@ -40,8 +37,8 @@ class Card {
     this._titleCard.textContent = this._name;
     this._setEventListeners();
     return this._element;
-
   }
+
 
   _setEventListeners() {
     this._likeCard.addEventListener("click", this._buttonAddingLike)
