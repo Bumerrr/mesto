@@ -6,24 +6,28 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Mesto</title>
-   <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
+   <!-- <link rel="stylesheet" href="../pages/index.css" /> -->
 </head>
 
 <body class="body">
    <div class="page">
       <header class="header">
+         <!-- <a href="#"><img class="header__logo" src="../image/logo.svg" alt="Логотип проекта 'Mesto'" /></a> -->
          <a href="#"><img class="header__logo" src="<%=require('../image/logo.svg')%>" alt="Логотип проекта 'Mesto'" /></a>
       </header>
       <main>
          <section class="profile">
+            <!-- <img class="profile__avatar" src="../image/avatar.jpg" alt="изображение профиля на сайте" /> -->
             <img class="profile__avatar" src="<%=require('../image/avatar.jpg')%>" alt="изображение профиля на сайте" />
             <div class="profile__info">
                <h2 class="profile__info-name">Жак-Ив Кусто</h2>
                <button class="profile__info-button" type="button"></button>
                <p class="profile__info-text">Исследователь океана</p>
             </div>
-            <button class="profile__button-add" type="button"><img src="<%=require('../image/добавить.svg')%>"
-                  alt="кнопка добавить" /></button>
+            <button class="profile__button-add" type="button"><img src="<%=require('../image/добавить.svg')%>" 
+               alt="кнопка добавить" /></button>
+            <!-- <button class="profile__button-add" type="button"><img src="../image/добавить.svg"
+                  alt="кнопка добавить" /></button> -->
          </section>
          <section class="elements" aria-label="фотографии">
             <ul class="elements__list">
@@ -41,14 +45,14 @@
          <h2 class="popup__title">Редактировать&nbsp;профиль</h2>
          <form class="form popup__form-profile" name="formChange" novalidate>
             <label class="form__label">
-               <input name='nameProfile' type="text" id='name' placeholder="Имя"
+               <input type="text" id='input-title' placeholder="Имя"
                   class="popup__info popup__info_type_name form__input" minlength="2" maxlength="40" required />
-               <span class="form__active-error  nameProfile-error"></span>
+               <span class="form__active-error  input-title-error"></span>
             </label>
             <label class="form__label">
-               <input name='infoProfile' type="text" id='info' placeholder="Описание"
+               <input name='infoProfile' type="text" id='input-job' placeholder="Описание"
                   class="popup__info  popup__info_type_text form__input" minlength="2" maxlength="200" required />
-               <span class="form__active-error infoProfile-error"></span>
+               <span class="form__active-error input-job-error"></span>
             </label>
             <button type="submit" class="form__save" value="Сохранить">Сохранить</button>
          </form>
@@ -60,14 +64,14 @@
          <h2 class="popup__title">Новое&nbsp;место</h2>
          <form class="form form_add-card" name="formAdd" novalidate>
             <label class="form__label">
-               <input name="nameCard" type="text" id='place' placeholder="Название"
+               <input type="text" id='input-name' placeholder="Название"
                   class="popup__info popup__info_type_title form__input" minlength="2" maxlength="30" required />
-               <span class="form__active-error nameCard-error"></span>
+               <span class="form__active-error input-name-error"></span>
             </label>
             <label class="form__label">
-               <input name="linkCard" type="url" id='link' placeholder="Ссылка на картинку"
+               <input type="url" id='input-link' placeholder="Ссылка на картинку"
                   class="popup__info popup__info_type_link form__input" required />
-               <span class="form__active-error linkCard-error"></span>
+               <span class="form__active-error input-link-error"></span>
             </label>
             <button type="submit" class="form__save" value="Создать">Создать</button>
          </form>

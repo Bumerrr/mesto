@@ -1,8 +1,7 @@
 class Card {
-  constructor(data, cardSelector, openHandler) {
-    const { name, link } = data;
-    this._name = name;
-    this._link = link;
+  constructor({item}, cardSelector, openHandler) {
+    this._name = item.name;
+    this._link = item.link;
     this._cardSelector = cardSelector;
     this._openHandler = openHandler;
   }
@@ -22,7 +21,7 @@ class Card {
   }
   
   _handleImgClick = () => {
-    this._openHandler({ link: this._link, name: this._name });
+    this._openHandler({ name: this._name, link: this._link });
   }
 
   generateCard() {
