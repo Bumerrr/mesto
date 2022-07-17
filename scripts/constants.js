@@ -66,7 +66,7 @@ export const initialCards = [
   }
 ];
 
-export const ValidatorConfig = {
+export const validatorConfig = {
   formSelector: "form",
   inputSelector: "form__input",
   submitButtonSelector: "form__save",
@@ -91,7 +91,7 @@ export const popupConfiguration = {
 export const cardsContainerSelector = 'elements__list';
 export const newPlacePopupSelector = 'popup_add';
 export const profilePopupSelector = 'popup_editing';
-export const ImagePopupSelector = 'popup_window';
+export const imagePopupSelector = 'popup_window';
 export const profileFormName = 'formChange';
 export const newPlaceFormName = 'formAdd';
 

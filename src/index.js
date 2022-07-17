@@ -5,7 +5,7 @@ import Section from "../scripts/Section.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
 import {
   initialCards,
-  ValidatorConfig,
+  validatorConfig,
   formValidators,
   popupEditingOpenButton,
   popupAddOpenButton,
@@ -19,7 +19,7 @@ import {
   newPlaceFormName,
   profileConfiguration,
   profilePopupSelector,
-  ImagePopupSelector,
+  imagePopupSelector,
   bigImagePopupConfiguration,
 } from "../scripts/constants.js";
 
@@ -31,11 +31,11 @@ function renderCard(cardElement) {
 };
 
 Array.from(document.forms).forEach((formElement) => {
-  formValidators[formElement.name] = new FormValidator(ValidatorConfig, formElement);
+  formValidators[formElement.name] = new FormValidator(validatorConfig, formElement);
   formValidators[formElement.name].enableValidation();
 });
 
-  const bigImagePopup = new PopupWithImage(ImagePopupSelector, popupConfiguration, bigImagePopupConfiguration);
+  const bigImagePopup = new PopupWithImage(imagePopupSelector, popupConfiguration, bigImagePopupConfiguration);
   bigImagePopup.setEventListeners();
 
   function createCard(item) {
