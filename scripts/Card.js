@@ -15,12 +15,12 @@ class Card {
     this._likeCard.classList.toggle("elements__card-button_active");
   }
 
-  _btnDeletHandler = () => {
+  _buttontnDeletHandler = () => {
     this._element.remove();
     this._element = null
   }
   
-  _handleImgClick = () => {
+  _handleImageClick = () => {
     this._openHandler({ name: this._name, link: this._link });
   }
 
@@ -41,8 +41,8 @@ class Card {
 
   _setEventListeners() {
     this._likeCard.addEventListener("click", this._buttonAddingLike)
-    this._deleteCard.addEventListener('click', this._btnDeletHandler)
-    this._imageNewCard.addEventListener('click', this._handleImgClick)
+    this._deleteCard.addEventListener('click', this._buttontnDeletHandler)
+    this._imageNewCard.addEventListener('click', this._handleImageClick)
   }
 }
 
