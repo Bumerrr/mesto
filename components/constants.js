@@ -28,6 +28,13 @@ export const popupWindowContainer = popupWindowBigImage.querySelector('.popup__c
 export const popupWindowImg = popupWindowBigImage.querySelector('.popup__image-window');
 export const popupWindowTitle = popupWindowBigImage.querySelector('.popup__title-window');
 export const popupList = document.querySelectorAll('.popup');
+
+//кнопка открытия попап аватар
+export const popupAvatarOpenButton = document.querySelector(".profile__avatar_pencil");
+
+export const popupDeleteOpenButton = document.querySelector(".elements__delete");
+
+export const btnSavePopupSelector = document.querySelector(".form__save");
 // теперь картинки можно импортировать,
 // вебпак добавит в переменные правильные пути
 export const bmw = new URL('../image/bmw.jpg', import.meta.url);
@@ -85,7 +92,7 @@ export const formConfiguration = {
 
 export const popupConfiguration = {
   activeModifier: 'popup_opened',
-  closeButtonSelector: 'popup__close',
+  closeButtonSelector: 'popup__close',  
 };
 
 export const cardsContainerSelector = 'elements__list';
@@ -94,11 +101,21 @@ export const profilePopupSelector = 'popup_editing';
 export const imagePopupSelector = 'popup_window';
 export const profileFormName = 'formChange';
 export const newPlaceFormName = 'formAdd';
+export const avatarPopupSelector = 'popup_avatar';
+export const profileAvatar = 'formAvatar';
+export const deletePopupSelector = 'popup_delete';
+
+// export const profileConfiguration = {
+//   titleSelector: "profile__info-name",
+//   jobSelector: "profile__info-text",
+// };
 
 export const profileConfiguration = {
   titleSelector: "profile__info-name",
   jobSelector: "profile__info-text",
+  avatarSelector: "profile__avatar",
 };
+// export const avatarSelector = "profile__avatar";
 
 export const bigImagePopupConfiguration = {
   imageSelector: "popup__image-window",

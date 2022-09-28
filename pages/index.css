@@ -51,4 +51,10 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/form/__input/_type/form__input_type_error.css);
 @import url(../blocks/form/__active-error/_visible/form__active-error_visible.css);
+@import url(../blocks/popup/_delete/popup_delete.css);
+@import url(../blocks/popup/_avatar/popup_avatar.css);
+@import url(../blocks/profile/__avatar/_pencil/profile__avatar_pencil.css);
+@import url(../blocks/elements/__card-number/elements__card-number.css);
+@import url(../blocks/elements/__card-likes/elements__card-likes.css);
+@import url(../blocks/elements/__delete/_active/elements__delete_active.css);
 @import url(../blocks/body/body.css);
