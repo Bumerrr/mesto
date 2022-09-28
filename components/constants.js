@@ -30,7 +30,7 @@ export const popupWindowTitle = popupWindowBigImage.querySelector('.popup__title
 export const popupList = document.querySelectorAll('.popup');
 
 //кнопка открытия попап аватар
-export const popupAvatarOpenButton = document.querySelector(".profile__avatar_pencil");
+export const popupAvatarOpenButton = document.querySelector(".profile__avatar-pencil");
 
 export const popupDeleteOpenButton = document.querySelector(".elements__delete");
 

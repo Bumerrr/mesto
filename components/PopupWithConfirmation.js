@@ -3,7 +3,7 @@ import Popup from "./Popup";
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector, popupConfiguration) {
     super(popupSelector, popupConfiguration);
-    this._btn = this._popup.querySelector("#delete");
+    this._btn = this._popup.querySelector(".form__save_delete");
     this._popupButtonTextContent = this._btnPopup.textContent;
     this.onSubmit = () => {};
   }
@@ -20,11 +20,11 @@ export default class PopupWithConfirmation extends Popup {
     this.close()
   }
 
-  renderLoadingWhileDeleting(isLoading) {
-    if(isLoading) {
-      this._btn.textContent = 'Сохранение...'
-    } else {
-      this._btn.textContent = this._popupButtonTextContent
-    }
-  }
+  // renderLoadingWhileDeleting(isLoading) {
+  //   if(isLoading) {
+  //     this._btn.textContent = 'Сохранение...'
+  //   } else {
+  //     this._btn.textContent = this._popupButtonTextContent
+  //   }
+  // }
 }
