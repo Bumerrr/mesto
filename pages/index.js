@@ -1,4 +1,4 @@
-import '../pages/index.css';
+import './index.css';
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
@@ -30,7 +30,7 @@ import {
   popupDeleteOpenButton,
   avatarSelector,
   btnSavePopupSelector
-} from "../components/constants.js";
+} from "../utils/constants.js";
 
 import PopupWithForm from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
@@ -49,19 +49,11 @@ async function init() {
   Promise.all([api.getUserInfo(), api.getCards()])
     .then(([userData, cards]) => {
       userId = userData._id;
-      // console.log(userId);
-      // user.setUserInfo(userData);
       cardsContainer.renderAll(cards);
-      // console.log(cardsContainer)
-      // cardsContainer.reverse(cards),
-      console.log(cards)
     })
     .catch((err) => {
       console.log(`Ошибка Promise all:${err}`);
     })
-  // function renderCard(cardElement) {
-  //   cardsBlock.append(cardElement);
-  // }
 
   Array.from(document.forms).forEach((formElement) => {
     formValidators[formElement.name] = new FormValidator(validatorConfig, formElement);
@@ -82,9 +74,7 @@ async function init() {
         handleLikeClick: () => {
           card.setLike()
         },
-        // clickLike : () => {
-        //   card.isLiked()
-        // }
+
       },
       templateCards,
       bigImagePopup.open,
@@ -93,7 +83,6 @@ async function init() {
       api,
 
     );
-    // console.log(userId)
 
     return card.generateCard();
   }
@@ -105,33 +94,30 @@ async function init() {
     popupConfiguration
   );
 
-  deletePopup.setEventListeners();
+  deletePopup.setEventListeners()
 
   const openCardDelete = (cardId2, cardElement2) => {
     console.log("openCardDelete", cardId2, cardElement2)
-
     cardId = cardId2
     cardElement = cardElement2
-
     deletePopup.setListener(submitCardDelete)
-    deletePopup.open()
+    deletePopup.open();
   }
 
   const submitCardDelete = () => {
     console.log("submitCardDelete", cardId, cardElement)
-
+    deletePopup.renderLoading(true);
     api.deleteCard(cardId)
       .then(() => {
         cardElement.remove();
         cardElement = null;
       })
       .catch(err => console.log(`Ошибка при удалении:${err}`))
+      .finally(() => {
+        console.log("ypaaaaaaaaaa")
+        deletePopup.renderLoading(false);
+      })
   }
-  // const cards = await api.getCards()
-
-  // cards.forEach((item) => {
-  //   renderCard(createCard(item));
-  // });
 
   const cardsContainer = new Section({
     // items: cards.reverse(),
@@ -141,7 +127,13 @@ async function init() {
   );
 
   const handleCardSubmit = async (item) => {
+    newCardPopup.renderLoading(true);
     const dataa = await api.createCard(item)
+      .then((res) => console.log(res))
+      .catch(err => console.log(`Ошибка при смене аватара:${err}`))
+      .finally(() => {
+        newCardPopup.renderLoading(false);
+      })
     cardsContainer.addItem(dataa);
   }
 
@@ -161,13 +153,17 @@ async function init() {
 
   const userInfo = await api.getUserInfo()
 
-  // const user = new UserInfo(profileConfiguration);
   user.initUser(userInfo)
 
   async function handleProfileFormSubmit(data) {
     user.setUserInfo(data);
+    profilePopup.renderLoading(true);
     await api.changeUserInfo(data)
-    // console.log(user.setUserInfo(data))
+    .then((res) => console.log(res))
+    .catch(err => console.log(`Ошибка при смене аватара:${err}`))
+    .finally(() => {
+      profilePopup.renderLoading(false);
+    })
   }
 
   const profilePopup = new PopupWithForm(
@@ -186,8 +182,14 @@ async function init() {
   }
 
   async function handleAvatarFormSubmit(data) {
-    user.setAvatar(data);
+    avatarPopup.renderLoading(true)
     await api.changeAvatar(data)
+      .then((res) => console.log(res))
+      .catch(err => console.log(`Ошибка при смене аватара:${err}`))
+      .finally(() => {
+        avatarPopup.renderLoading(false);
+      })
+    user.setAvatar(data);
   }
 
   user.initAvatar(userInfo)

@@ -14,7 +14,7 @@ export class UserInfo {
     }
 
     setAvatar = (data) => {
-        this._avatarElement.src = data.image;
+        this._avatarElement.src = data.image || '';
     }
 
     getUserInfo = () => {
