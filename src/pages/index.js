@@ -195,7 +195,7 @@ async function init() {
     user.setAvatar(data);
   }
 
-  // user.initAvatar(userInfo)
+  user.initAvatar(userInfo)
 
   const avatarPopup = new PopupWithForm(
     avatarPopupSelector,
@@ -207,7 +207,7 @@ async function init() {
     user.getAvatar,
   );
   avatarPopup.setEventListeners();
-  user.initAvatar(userInfo)
+  // user.initAvatar(userInfo)
   const changeAvatarPopupAvatar = () => {
     avatarPopup.open();
   }
