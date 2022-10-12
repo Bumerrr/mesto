@@ -69,8 +69,9 @@ async function init() {
 
   function createCard(item) {
     if (item === undefined) {
-      alert("какого черта")}
-      // debugger
+      alert("какого черта")
+    }
+    // debugger
     const card = new Card(
       {
         item,
@@ -161,11 +162,11 @@ async function init() {
     user.setUserInfo(data);
     profilePopup.renderLoading(true);
     await api.changeUserInfo(data)
-    .then((res) => console.log(res))
-    .catch(err => console.log(`Ошибка при смене имени:${err}`))
-    .finally(() => {
-      profilePopup.renderLoading(false);
-    })
+      .then((res) => console.log(res))
+      .catch(err => console.log(`Ошибка при смене имени:${err}`))
+      .finally(() => {
+        profilePopup.renderLoading(false);
+      })
   }
 
   const profilePopup = new PopupWithForm(
@@ -189,12 +190,12 @@ async function init() {
       .then((res) => console.log(res))
       .catch(err => console.log(`Ошибка при смене аватара:${err}`))
       .finally(() => {
-          avatarPopup.renderLoading(false);
+        avatarPopup.renderLoading(false);
       })
     user.setAvatar(data);
   }
 
-  user.initAvatar(userInfo)
+  // user.initAvatar(userInfo)
 
   const avatarPopup = new PopupWithForm(
     avatarPopupSelector,
@@ -206,7 +207,7 @@ async function init() {
     user.getAvatar,
   );
   avatarPopup.setEventListeners();
-
+  user.initAvatar(userInfo)
   const changeAvatarPopupAvatar = () => {
     avatarPopup.open();
   }
