@@ -1,8 +1,10 @@
 class Card {
   constructor({ item, handleLikeClick }, cardSelector, openHandler, deletePopup, userId, api) {
     this._name = item.name;
+    // console.log(this._name)
     this._link = item.link;
     this._owner = item.owner._id;
+    // console.log(this._owner)
     this._cardId = item._id;
     this._likes = item.likes;
     this._cardSelector = cardSelector;
@@ -47,6 +49,7 @@ class Card {
   }
 
   _handleImageClick = () => {
+    console.log(this._name)
     this._openHandler({ name: this._name, link: this._link });
   }
 

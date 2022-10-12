@@ -68,6 +68,9 @@ async function init() {
   bigImagePopup.setEventListeners();
 
   function createCard(item) {
+    if (item === undefined) {
+      alert("какого черта")}
+      // debugger
     const card = new Card(
       {
         item,
@@ -114,7 +117,6 @@ async function init() {
       })
       .catch(err => console.log(`Ошибка при удалении:${err}`))
       .finally(() => {
-        console.log("ypaaaaaaaaaa")
         deletePopup.renderLoading(false);
       })
   }
@@ -128,13 +130,13 @@ async function init() {
 
   const handleCardSubmit = async (item) => {
     newCardPopup.renderLoading(true);
-    const dataa = await api.createCard(item)
-      .then((res) => console.log(res))
-      .catch(err => console.log(`Ошибка при смене аватара:${err}`))
+    await api.createCard(item)
+      .then((res) => cardsContainer.addItem(res))
+      .catch(err => console.log(`Ошибка при добавлении карточки:${err}`))
       .finally(() => {
         newCardPopup.renderLoading(false);
       })
-    cardsContainer.addItem(dataa);
+    // cardsContainer.addItem(dataa);
   }
 
   const newCardPopup = new PopupWithForm(
@@ -160,7 +162,7 @@ async function init() {
     profilePopup.renderLoading(true);
     await api.changeUserInfo(data)
     .then((res) => console.log(res))
-    .catch(err => console.log(`Ошибка при смене аватара:${err}`))
+    .catch(err => console.log(`Ошибка при смене имени:${err}`))
     .finally(() => {
       profilePopup.renderLoading(false);
     })
@@ -187,7 +189,7 @@ async function init() {
       .then((res) => console.log(res))
       .catch(err => console.log(`Ошибка при смене аватара:${err}`))
       .finally(() => {
-        avatarPopup.renderLoading(false);
+          avatarPopup.renderLoading(false);
       })
     user.setAvatar(data);
   }

@@ -3,11 +3,9 @@ import Popup from "./Popup";
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector, popupConfiguration) {
     super(popupSelector, popupConfiguration);
-    // this._popupButtonTextContent = this._btnPopup.textContent;
     this.onSubmit = () => {};
-    // this._btn = this._popup.querySelector(".form__save");
-    // this._popupButtonTextContent = this._btn.textContent
-    // console.log(this._popupButtonTextContent, "BOOOOOOOOOOOT")
+    this._btn = this._popup.querySelector(".form__save");
+    this._popupButtonTextContent = this._btn.textContent
   }
 
   setListener = (onSubmit) => {
@@ -22,12 +20,11 @@ export default class PopupWithConfirmation extends Popup {
     this.close()
   }
 
-  // renderLoading(isLoading) {
-  //   if(isLoading) {
-  //     this._btn.textContent = 'Сохранение...'
-  //     console.log(this._popupButtonTextContent, "BOOOOOOOOOOOT")
-  //   } else {
-  //     this._btn.textContent = this._popupButtonTextContent
-  //   }
-  // }
+  renderLoading(isLoading) {
+    if(isLoading) {
+      this._btn.textContent = 'Сохранение...'
+    } else {
+      this._btn.textContent = this._popupButtonTextContent
+    }
+  }
 }
