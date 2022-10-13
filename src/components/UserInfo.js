@@ -8,25 +8,30 @@ export class UserInfo {
         this._avatarElement = document.querySelector(`.${this._avatarSelector}`);
     }
 
-    setUserInfo = (data) => {
-        this._titleElement.textContent = data.title || '';
-        this._jobElement.textContent = data.job || '';
+    setUserInfo = ({ name, about }) => {
+        this._titleElement.textContent = name || '';
+        this._jobElement.textContent = about || '';
     }
 
-    setAvatar = (data) => {
-        this._avatarElement.src = data.image || '';
+    setAvatar = ({ avatar }) => {
+        this._avatarElement.src = avatar || '';
     }
 
     getUserInfo = () => {
         return {
-            title: this._titleElement.textContent,
-            job: this._jobElement.textContent,
-        };
+            name: this._titleElement.textContent,
+            about: this._jobElement.textContent,
+        }
     }
 
     getAvatar = () => {
+<<<<<<< HEAD
         return { image: this._avatarElement.src };
     }
 
+=======
+        return { avatar: this._avatarElement.src };
+    }
+>>>>>>> gh-pages
 }
 

@@ -36,9 +36,11 @@ import Popup from '../components/Popup';
 
 async function init() {
   const api = new Api({
-    userUrl: 'https://nomoreparties.co/v1/cohort-51/users/me',
-    cardUrl: 'https://mesto.nomoreparties.co/v1/cohort-51/cards',
-    token: 'b84ca8c8-70d1-421e-a05d-8cb603f10d20'
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-51',
+    headers: {
+      authorization: 'b84ca8c8-70d1-421e-a05d-8cb603f10d20',
+      'Content-Type': 'application/json'
+    },
   });
   let userId = null;
   const user = new UserInfo(profileConfiguration);
@@ -46,7 +48,10 @@ async function init() {
   Promise.all([api.getUserInfo(), api.getCards()])
     .then(([userData, cards]) => {
       userId = userData._id;
+      console.log(userData)
       cardsContainer.renderAll(cards);
+      user.setUserInfo(userData);
+      user.setAvatar(userData)
     })
     .catch((err) => {
       console.log(`Ошибка Promise all:${err}`);
@@ -66,16 +71,13 @@ async function init() {
 
   function createCard(item) {
     if (item === undefined) {
-      alert("какого черта")
     }
-    // debugger
     const card = new Card(
       {
         item,
         handleLikeClick: () => {
           card.setLike()
         },
-
       },
       templateCards,
       bigImagePopup.open,
@@ -112,6 +114,7 @@ async function init() {
       .then(() => {
         cardElement.remove();
         cardElement = null;
+        deletePopup.close()
       })
       .catch(err => console.log(`Ошибка при удалении:${err}`))
       .finally(() => {
@@ -120,7 +123,6 @@ async function init() {
   }
 
   const cardsContainer = new Section({
-    // items: cards.reverse(),
     renderer: createCard,
   },
     cardsContainerSelector
@@ -129,12 +131,14 @@ async function init() {
   const handleCardSubmit = async (item) => {
     newCardPopup.renderLoading(true);
     await api.createCard(item)
-      .then((res) => cardsContainer.addItem(res))
+      .then((res) => {
+        cardsContainer.addItem(res);
+        newCardPopup.close()
+      })
       .catch(err => console.log(`Ошибка при добавлении карточки:${err}`))
       .finally(() => {
         newCardPopup.renderLoading(false);
       })
-    // cardsContainer.addItem(dataa);
   }
 
   const newCardPopup = new PopupWithForm(
@@ -142,7 +146,7 @@ async function init() {
     newPlaceFormName,
     popupConfiguration,
     formConfiguration,
-    formValidators[newPlaceFormName].cleanForm,
+    formValidators[newPlaceFormName].resetValidation,
     handleCardSubmit,
   );
   newCardPopup.setEventListeners();
@@ -151,15 +155,14 @@ async function init() {
     newCardPopup.open();
   }
 
-  const userInfo = await api.getUserInfo()
-
-  user.initUser(userInfo)
-
   async function handleProfileFormSubmit(data) {
-    user.setUserInfo(data);
     profilePopup.renderLoading(true);
     await api.changeUserInfo(data)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        user.setUserInfo(data);
+        profilePopup.close()
+      })
       .catch(err => console.log(`Ошибка при смене имени:${err}`))
       .finally(() => {
         profilePopup.renderLoading(false);
@@ -171,7 +174,7 @@ async function init() {
     profileFormName,
     popupConfiguration,
     formConfiguration,
-    formValidators[profileFormName].cleanForm,
+    formValidators[profileFormName].resetValidation,
     handleProfileFormSubmit,
     user.getUserInfo,
   );
@@ -184,27 +187,29 @@ async function init() {
   async function handleAvatarFormSubmit(data) {
     avatarPopup.renderLoading(true)
     await api.changeAvatar(data)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        user.setAvatar(data);
+        avatarPopup.close()
+      })
       .catch(err => console.log(`Ошибка при смене аватара:${err}`))
       .finally(() => {
         avatarPopup.renderLoading(false);
       })
-    user.setAvatar(data);
   }
-
-  // user.initAvatar(userInfo)
 
   const avatarPopup = new PopupWithForm(
     avatarPopupSelector,
     profileAvatar,
     popupConfiguration,
     formConfiguration,
-    formValidators[profileAvatar].cleanForm,
+    formValidators[profileAvatar].resetValidation,
     handleAvatarFormSubmit,
     user.getAvatar,
   );
+
   avatarPopup.setEventListeners();
-  user.initAvatar(userInfo)
+
   const changeAvatarPopupAvatar = () => {
     avatarPopup.open();
   }

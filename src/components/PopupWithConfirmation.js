@@ -10,19 +10,18 @@ export default class PopupWithConfirmation extends Popup {
 
   setListener = (onSubmit) => {
     this.onSubmit = onSubmit;
-    this._btn.removeEventListener('click', this._onListener)
-    this._btn.addEventListener('click', this._onListener)
+    this._btn.removeEventListener('click', this._handleDelete)
+    this._btn.addEventListener('click', this._handleDelete)
   }
 
-  _onListener = (evt) => {
+  _handleDelete = (evt) => {
     evt.preventDefault();
     this.onSubmit()
-    this.close()
   }
 
   renderLoading(isLoading) {
     if(isLoading) {
-      this._btn.textContent = 'Сохранение...'
+      this._btn.textContent = 'Удаление...'
     } else {
       this._btn.textContent = this._popupButtonTextContent
     }
