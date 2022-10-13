@@ -49,6 +49,7 @@ async function init() {
     .then(([userData, cards]) => {
       userId = userData._id;
       console.log(userData)
+      console.log(cards)
       cardsContainer.renderAll(cards);
       user.setUserInfo(userData);
       user.setAvatar(userData)
