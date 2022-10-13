@@ -27,9 +27,6 @@ import {
   avatarPopupSelector,
   profileAvatar,
   deletePopupSelector,
-  popupDeleteOpenButton,
-  avatarSelector,
-  btnSavePopupSelector
 } from "../utils/constants.js";
 
 import PopupWithForm from "../components/PopupWithForm.js";
