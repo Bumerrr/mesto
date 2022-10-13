@@ -25,13 +25,7 @@ export class UserInfo {
     }
 
     getAvatar = () => {
-<<<<<<< HEAD
-        return { image: this._avatarElement.src };
-    }
-
-=======
         return { avatar: this._avatarElement.src };
     }
->>>>>>> gh-pages
-}
 
+}
