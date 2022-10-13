@@ -28,13 +28,5 @@ export class UserInfo {
         return { image: this._avatarElement.src };
     }
 
-    initUser = (data) => {
-        this._titleElement.textContent = data.name || '';
-        this._jobElement.textContent = data.about || '';
-    }
-
-    initAvatar = (data) => {
-        this._avatarElement.src = data.avatar || '';
-    }
 }
 
