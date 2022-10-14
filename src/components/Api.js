@@ -10,11 +10,6 @@ export default class Api {
       headers: this._headers
     })
       .then((res) => this._checkServer(res))
-      .catch((err) => {
-        console.log(err);
-        alert('данные не получены');
-        reject(err)
-      })
   }
 
   getCards() {
@@ -23,12 +18,6 @@ export default class Api {
       headers: this._headers
     })
       .then((res) => this._checkServer(res))
-      .catch((err) => {
-        console.log(err);
-        alert('данные карточек не получены');
-        reject(err)
-      })
-
   }
 
   createCard(data) {
